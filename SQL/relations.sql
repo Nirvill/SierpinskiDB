@@ -1,4 +1,4 @@
-
+USE db_rzherebilov;
 CREATE TABLE Replika -- Andorids
 (   
     RID INTEGER, 
@@ -18,6 +18,7 @@ CREATE TABLE Replika -- Andorids
 CREATE TABLE Model
 (    
     M_ID INTEGER, -- Model ID
+    Model_Code Char(4),
     Model_Name TEXT,
     Height INTEGER,
     Model_Description TEXT,
@@ -30,6 +31,7 @@ CREATE TABLE Model
 CREATE TABLE Gestalt -- Human
 (
     GID INTEGER, -- Gestalt ID
+    Legal_Name CHAR(20),
     Inhabits INTEGER,
     End_Of_Sentence DATE,
     Gender CHAR(15),
@@ -79,6 +81,7 @@ CREATE TABLE Operation
 CREATE TABLE Location1
 (
     LID INTEGER,
+    Location_Name Char(30),
     Capacity INTEGER,
     Department CHAR(20),
     Clearance_Level INTEGER CHECK (Clearance_Level > -1 AND Clearance_Level < 4),
