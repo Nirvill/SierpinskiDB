@@ -1,0 +1,21 @@
+USE db_rzherebilov;
+INSERT INTO `Report` (`ReportID`, `RID`, `TID`, `Report_Contents`, `Report_Date`) VALUES
+    ('1', '12', '7', 'Yappa yappa and I hate my job', '2084-3-14 '),
+    ('2', '25', '26', 'I have not seen anything and it was successful', '2084-7-24 '),
+    ('3', '32', '21', 'It was insanely boring and we have failed', '2084-6-19 '),
+    ('4', '31', '45', 'I have no idea what happened and it was successful', '2084-9-11 '),
+    ('5', '33', '35', 'Balatro on top and it was a partial success', '2085-8-12 '),
+    ('6', '33', '5', 'Something truly has happened and no further comments', '2085-8-12 '),
+    ('7', '36', '39', 'Yada Yada and it was a partial success', '2085-2-15 '),
+    ('8', '15', '15', 'I have not seen anything and I want to go home', '2085-3-16 '),
+    ('9', '10', '7', 'Balatro on top and I want to go home', '2084-4-10 '),
+    ('10', '35', '35', 'I have not seen anything and it was successful', '2084-8-8 '),
+    ('11', '21', '9', 'Something truly has happened and I hate my job', '2084-11-4 '),
+    ('12', '14', '41', 'Balatro on top and I want to go home', '2084-6-15 '),
+    ('13', '23', '29', 'Balatro on top and it was successful', '2084-5-11 '),
+    ('14', '2', '24', 'I have no idea what happened and it was not expected', '2084-3-19 '),
+    ('15', '15', '20', 'It was insanely boring and we have failed', '2085-3-16 '),
+    ('16', '15', '8', 'I have not seen anything and it was not expected', '2085-3-16 '),
+    ('17', '20', '36', 'It was insanely boring and I hate my job', '2084-5-24 '),
+    ('18', '13', '12', 'I have not seen anything and I hate my job', '2084-1-28 '),
+    ('19', '32', '11', 'Yada Yada and we have failed', '2084-6-19 ');
