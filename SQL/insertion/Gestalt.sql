@@ -1,0 +1,20 @@
+USE db_rzherebilov;
+INSERT INTO `Gestalt` (`GID`, `Legal_Name`, `Inhabits`, `End_Of_Sentence`, `Gender`, `Assigned`, `Reports_To`) VALUES
+    ('1', 'Ariane Yeong', '54', '2094-2-18 ', 'Female', '5', '27 '),
+    ('2', 'Alina Seo', '57', '2092-5-26 ', 'Female', '19', '26 '),
+    ('3', 'Isolde Itou', '51', '2096-4-26 ', 'Female', '13', '18 '),
+    ('4', 'Erika Itou', '59', '2093-5-7 ', 'Female', '18', '26 '),
+    ('5', 'Lilith Itou', '60', '2089-12-25 ', 'Female', '13', '26 '),
+    ('6', 'Anna Huang', '51', '2087-5-17 ', 'Female', '17', '18 '),
+    ('7', 'Helene Song', '60', '2088-8-9 ', 'Female', '5', '25 '),
+    ('8', 'Elise Nguyen', '59', '2092-10-25 ', 'Female', '17', '27 '),
+    ('9', 'Notburga Park', '58', '2090-3-15 ', 'Female', '18', '26 '),
+    ('10', 'Birgit Fukuyama', '57', '2097-4-4 ', 'Female', '19', '25 '),
+    ('11', 'Rebecca Liang', '57', '2094-9-12 ', 'Female', '19', '26 '),
+    ('12', 'Gabriele Ang', '54', '2087-1-15 ', 'Female', '5', '27 '),
+    ('13', 'Roswita Fong', '53', '2094-11-2 ', 'Female', '13', '25 '),
+    ('14', 'Waltraud Gao', '55', '2087-8-18 ', 'Male', '13', '18 '),
+    ('15', 'Ulrike Kho', '60', '2094-10-16 ', 'Male', '17', '18 '),
+    ('16', 'Saskia Li', '59', '2097-8-16 ', 'Female', '5', '27 '),
+    ('17', 'Nikolai Nguyen', '55', '2096-8-23 ', 'Male', '18', '25 '),
+    ('18', 'Siegfried Yi', '57', '2087-6-19 ', 'Male', '19', '25 ');
