@@ -1,0 +1,244 @@
+@font-face {
+  font-family: "pokemon-dp-pro";
+  src: url("pokemon-dp-pro/pokemon-dp-pro.ttf") format("truetype");
+}
+
+/* General */
+.body, html {
+    background-color: #1a1a1a;
+    /* background-size: 50px 50px;
+    background-image: linear-gradient(to right, #1f1f1f 1px, transparent 1px), linear-gradient(to bottom, #1f1f1f 1px, transparent 1px); */
+    background:
+        linear-gradient(-90deg, rgba(169, 169, 169, 0.04) 1px, transparent 1px),
+        linear-gradient(rgba(169, 169, 169, 0.04) 1px, transparent 1px), 
+        linear-gradient(-90deg, rgba(169, 169, 169, 0.04) 1px, transparent 1px),
+        linear-gradient(rgba(169, 169, 169, 0.04) 1px, transparent 1px),
+        linear-gradient(transparent 3px, #1a1a1a 3px, #1a1a1a 78px, transparent 78px),
+        linear-gradient(-90deg, #2e2e2e 1px, transparent 1px),
+        linear-gradient(-90deg, transparent 3px, #1a1a1a 3px, #1a1a1a 78px, transparent 78px),
+        linear-gradient(#424242 1px, transparent 1px),
+        #1a1a1a;
+    background-size:
+        4px 4px,
+        4px 4px,
+        80px 80px,
+        80px 80px,
+        80px 80px,
+        80px 80px,
+        80px 80px,
+        80px 80px;
+    color: white;
+    font-family: pokemon-dp-pro;
+    font-size: 23px;
+}
+
+a {
+    color: #dc440e;
+}
+
+
+
+/* Scanlines */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-size: 100% 100%;
+    background-image: url(https://retropie.org.uk/forum/assets/uploads/files/1570015905422-scanlines.png);
+    mask-image: radial-gradient(transparent, black 90%);
+    opacity: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+
+
+/* Log in page */
+input {
+    appearance: none;
+    font-family: pokemon-dp-pro;
+    font-size: 20px;   
+}
+
+input[type="text"] {
+    color: rgb(192, 192, 192);
+    background-color: black;
+    background-size: 10px 10px;
+    background-image: linear-gradient(to right, #1f1f1f 1px, transparent 1px);
+    margin-left: 1vh;
+    /* margin-right: 1vh; */
+    width: 20vh;
+    border: solid 2px rgb(141, 141, 141);
+}
+
+input[type="submit"] {
+    color: black;
+    background-color: #dc440e;
+    border: solid #dc440e;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    color: #dc440e;
+    background-color: black;
+}
+
+.log-in {
+    justify-content: center;
+    text-align: center;
+    margin-top: 5vh;
+}
+
+
+
+/* Imprint stuff */
+#DISCLAIMER {
+    color: red;
+}
+
+.imprint-style {
+    justify-content: center;
+    text-align: center;
+    
+}
+
+.top-bar {
+    text-align: center;
+    margin-bottom: 2vh;
+    margin-top: 5vh;
+}
+
+.log-out-btn {
+    color: black;
+    background-color: #dc440e;
+    border: solid #dc440e;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.log-out-btn:hover {
+    color: #dc440e;
+    background-color: black;
+}
+
+
+/* Main page grid */
+.container {
+    display: grid;
+    margin: 2vh;
+    height: 85vh;
+    background-color: black;
+    background-size: 100px 100px;
+    background-image: linear-gradient(to right, #1f1f1f 1px, transparent 1px), linear-gradient(to bottom, #1f1f1f 1px, transparent 1px);
+    border: solid 2px white;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr 9fr;
+}
+
+.container > div {
+    border: solid 2px white;
+    padding: 20px;
+    text-align: center;
+}
+
+.container > div.top-menu {
+    grid-column: span 3;
+    grid-row: 1;
+    text-align: left;
+}
+
+.container > div.top-menu a {
+    color: white;
+    margin-left: 20px;
+}
+
+.container > div.top-menu a:hover {
+    color: #c6c6c6;
+}
+
+.container > div.side-bar {
+    grid-column-start: 1;
+    height: 100%;
+    font-size: 25px;
+    padding: 0;
+    border: none;
+    text-align: left;
+    overflow-y: auto;
+}
+
+.container > div.content-menu {
+    grid-row: span 100;
+    grid-column-start: 2;
+}
+
+.container > div.profile-bar {
+    grid-row: span 100;
+    grid-column-start: 3;
+}
+
+/* Sidebar items */
+.container > div.side-bar .side-item {
+    border: solid white 2px;
+    padding: 10px;
+}
+
+.side-item:hover {
+    color: #c6c6c6;
+}
+
+input.menu {
+    display: none;
+}
+
+ul.submenu {
+  display: none;
+  font-size: 20px;
+}
+
+.check-label {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+.check-label:hover {
+  color: #c6c6c6;
+}
+
+.check-label span{
+  display: inline-block;
+  font-size: small;
+  transition: transform 0.2s ease-in;
+}
+
+.menu:checked + .check-label span {
+  color: #dc440e;
+  transform: rotate(90deg);
+}
+
+input:checked~ul.submenu {
+  display: block;
+}
+
+.submenu {
+    list-style-type: square;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 1em;
+}
+
+.submenu a {
+    color: white
+}
+
+.submenu a:hover {
+    color: #dc440e;
+}
