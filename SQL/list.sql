@@ -1,3 +1,3 @@
 USE db_rzherebilov;
-SELECT Urgency, TID
-    FROM TASK1;
+SELECT Nickname
+    FROM Replika;

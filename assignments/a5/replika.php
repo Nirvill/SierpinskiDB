@@ -8,7 +8,7 @@
   <body>
     <div class="form-check">
     <h1>Insert a Replika</h1>
-    <form action="replika_check.php" mode="post">
+    <form action="replika_check.php" method="post">
       <p>Model Code: </p>
         <input type="radio" id="ARAR" name="model" value="1">
         <label for="ARAR">ARAR</label><br>
@@ -43,7 +43,7 @@
       <label for="nname">Nickname:</label><br>
       <input type="text" id="nname" name="nname"><br>
       <input type="submit" value="submit">
-      <input type="reset" value="Reset">
+      <input type="reset" value="reset">
     </form> 
     </div>
   </body>
