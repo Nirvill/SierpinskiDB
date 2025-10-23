@@ -33,7 +33,7 @@
         <input type="radio" id="FKLR" name="model" value="11">
         <label for="FKLR">FKLR</label><br><br>
       <label for="code">Replika Code (must be a number)</label>
-      <input type="number" step="1" id="code" min="0" max="99"><br>
+      <input type="number" step="1" name="code" id="code" min="0" max="99"><br>
       <label for="arrival_date">Date of Arrival:</label>
       <input type="date" id="arrival_date" name="arrival_date"><br>
       <label for="current_role">Current Role:</label><br>
