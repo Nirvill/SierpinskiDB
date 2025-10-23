@@ -7,8 +7,8 @@
   </head>
   <body>
     <div class="imprint">
-    <h1>Insert a Replika<h1>
-    <form action="/replika_check.php">
+    <h1>Insert a Replika</h1>
+    <form action="replika_check.php" mode="POST">
       
     <?php
       $config = require __DIR__ . '/../project/config.php'
@@ -29,6 +29,7 @@
       $sql = "SELECT Model_Code FROM Models";
       $result = $conn->query($sql);
 
+      echo "balls";
       if ($result->num_rows > 0) {
           // output data of each row
           while($row = $result->fetch_assoc()) {
