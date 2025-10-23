@@ -2,13 +2,13 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Insert Replika</title>
+    <title>Insert Gestalt</title>
     <link href="style.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
-    <div class="imprint">
+    <div class="form-check">
     <h1>Insert a Gestalt<h1>
-    <form action="gestalt_check.php" method="POST">
+    <form action="gestalt_check.php" method="post">
         <label for="fname">First name:</label><br>
         <input type="text" id="fname" name="fname"><br>
         <label for="lname">Last name:</label><br>
