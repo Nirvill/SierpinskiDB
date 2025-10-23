@@ -12,7 +12,7 @@
         <label for="iname">Item name:</label><br>
         <input type="text" id="iname" name="iname"><br>
         <label for="idesc">Item Description:</label><br>
-        <input type="text" id="idesc" name="idesc"><br>
+        <input type="textarea" rows="4" cols="50"id="idesc" name="idesc">Enter item description<br>
         <input type="submit" value="Submit">
         <input type="reset" value="Reset">
     </form> 
