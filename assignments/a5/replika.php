@@ -6,7 +6,7 @@
     <link href="style.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
-    <div class="imprint">
+    <div class="form-check">
     <h1>Insert a Replika</h1>
     <form action="replika_check.php" mode="POST">
       
