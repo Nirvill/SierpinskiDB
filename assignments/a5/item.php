@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="form-check">
-    <h1>Insert an Item<h1>
+    <h1>Insert an Item</h1>
     <form action="item_check.php" method="post">
         <label for="iname">Item name:</label><br>
         <input type="text" id="iname" name="iname"><br>
