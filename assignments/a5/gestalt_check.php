@@ -31,7 +31,7 @@
         }
         
       $stmt = $conn->prepare("INSERT INTO Gestalt (GID, Legal_Name, Inhabits, End_Of_Sentence, Gender, Assigned, Reports_To)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        VALUES (?, ?, ?, ?, ?, ?, ?)");
       $gid = NULL;
       $inhabits = NULL;
       $assigned = NULL;
