@@ -9,9 +9,9 @@
     <div class="imprint">
     <h1>Insert a Replika</h1>
     <form action="replika_check.php" method="POST">
-      
+
     <?php
-      $config = require __DIR__ . '/../project/config.php';
+      $config = require __DIR__ . '/../project/bootstrap.php';
  
       $servername = $config['DB_HOST'];
       $username = $config['DB_USER']; 
