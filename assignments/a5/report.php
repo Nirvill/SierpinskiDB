@@ -8,18 +8,13 @@
   <body>
     <div class="form-check">
         <h1>Submit a report</h1>
-        <form action="gestalt_check.php" method="post">
-            <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname"><br>
-            <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname"><br>
-            <p>Gender: </p>
-            <input type="radio" id="female" name="gender" value="Female">
-            <label for="female">Female</label><br>
-            <input type="radio" id="male" name="gender" value="Male">
-            <label for="male">Male</label><br><br>
-            <label for="sentence_end">End of Sentence:</label>
-            <input type="date" id="sentence_end" name="sentence_end">
+        <form action="report_check.php" method="post">
+            <label for="rid">Replika ID</label><br>
+            <input type="text" id="rid" name="rid"><br>
+            <label for="tid">Task ID</label><br>
+            <input type="text" id="tid" name="tid"><br>
+            <p>Contents: </p>
+            <textarea id="textarea" name="report" rows="4" cols="50">Enter your report here</textarea><br>
             <input type="submit" value="Submit">
             <input type="reset" value="Reset">
         </form> 
