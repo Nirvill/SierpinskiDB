@@ -8,7 +8,10 @@
   <body>
     <div class="form-check">
     <p>You have added: </p>
-      
+     <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?> 
     <?php
      echo "<!-- POST data: " . print_r($_POST, true) . " -->";
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
