@@ -42,9 +42,6 @@
 
 
 $stmt->bind_param("issssii", $gid, $name, $inhabits, $sentence_end, $gender, $assigned, $reports_to);
-      $stmt->bind_param(issssii, $gid ,$name, $inhabits, $sentence_end, $gender, $assigned, $reports_to);
-      // $sql = "INSERT INTO Gestalt (GID, Legal_Name, Inhabits, End_Of_Sentence, Gender, Assigned, Reports_To)
-      //   VALUES (, $name, NULL, $sentence_end, $gender, NULL, NULL, NULL)";
       //nuh-uh, no sql injections
         if ($stmt->execute() === TRUE) {
         echo "New record created successfully";
