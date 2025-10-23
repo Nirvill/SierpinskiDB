@@ -14,7 +14,7 @@
       require_once __DIR__ . '../project/bootstrap.php';
  
       $servername = $config['DB_HOST'];
-      $username = $config['DB_USER'];
+      $username = $config['DB_USER']; 
       $password = $config['DB_PASSWORD'];
       $dbname = $config['DB_NAME'];
  
