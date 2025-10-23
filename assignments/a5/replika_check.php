@@ -10,8 +10,9 @@
     <p>You have added: </p>
       
     <?php
+     echo "<!-- POST data: " . print_r($_POST, true) . " -->";
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-          die("<p>Error: No form data submitted. Please use the form to add a Gestalt.</p>");
+          die("<p>Error: No form data submitted. Please use the form to add a Replika.</p>");
       }
       $config = require __DIR__ . '/../project/bootstrap.php';
  
