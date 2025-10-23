@@ -8,7 +8,7 @@
   <body>
     <div class="imprint">
     <h1>Insert a Replika</h1>
-    <form action="replika_check.php" mode="POST">
+    <form action="replika_check.php" method="post">
       
     <?php
       require_once __DIR__ . '../project/bootstrap.php';
