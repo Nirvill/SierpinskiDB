@@ -8,8 +8,8 @@
   <body>
     <div class="imprint">
     <h1>Insert a Replika</h1>
-    <form action="replika_check.php" method="POST">
-
+    <form action="replika_check.php" mode="POST">
+      
     <?php
       $config = require __DIR__ . '/../project/bootstrap.php';
  
