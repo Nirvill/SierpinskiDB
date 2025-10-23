@@ -11,18 +11,9 @@
       
     <?php
      echo "<!-- POST data: " . print_r($_POST, true) . " -->";
-        echo "<!-- Request Method: " . $_SERVER['REQUEST_METHOD'] . " -->";
-    echo "<!-- GET data: " . print_r($_GET, true) . " -->";
-    echo "<!-- POST data: " . print_r($_POST, true) . " -->";
-    
-    // Check for form data in either GET or POST
-    if ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET)) {
-        $data = $_GET;
-    } elseif ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)) {
-        $data = $_POST;
-    } else {
-        die("<p>Error: No form data submitted. Please use the form to add a Replika.</p>");
-    }
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+          die("<p>Error: No form data submitted. Please use the form to add a Replika.</p>");
+      }
       $config = require __DIR__ . '/../project/bootstrap.php';
  
       $servername = $config['DB_HOST'];
@@ -54,7 +45,7 @@
       $assigned = NULL;
       $reports_to = NULL;
 
-$stmt->bind_param("iisisiisis", $rid, $clearance, $name, $inhabits, $arrival_date, $assigned, $reports_to, $current_role, $model, $nickname);
+        $stmt->bind_param("iisisiisis", $rid, $clearance, $name, $inhabits, $arrival_date, $assigned, $reports_to, $current_role, $model, $nickname);
       //nuh-uh, no sql injections
         if ($stmt->execute() === TRUE) {
         echo "New record created successfully";
