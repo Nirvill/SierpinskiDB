@@ -41,7 +41,7 @@ ini_set('display_errors', 1);
         $nickname = $_POST['nname'];
         }
         
-      $stmt = $conn->prepare("INSERT INTO Replika (RID, Clearance, Legal_Name, Inhabits, Arrival_Date, Assigned, Reports_To, Current_Role, M_ID, Nickname)
+      $stmt = $conn->prepare("INSERT INTO Replika (RID, Clearance, Legal_Name, Inhabits, Arrival_Date, Assigned, Reports_To, CurrentRole, M_ID, Nickname)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
       $rid = NULL;
       $inhabits = NULL;
