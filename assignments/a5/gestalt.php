@@ -20,7 +20,7 @@
             <label for="male">Male</label><br><br>
             <label for="sentence_end">End of Sentence:</label>
             <input type="date" id="sentence_end" name="sentence_end">
-            <input type="submit" value="Submit">
+            <input type="submit" value="submit">
             <input type="reset" value="Reset">
         </form> 
     </div>
