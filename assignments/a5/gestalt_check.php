@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Insert Replika</title>
+    <title>Inserted Gestalt</title>
     <link href="style.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
@@ -39,10 +39,7 @@
       $inhabits = NULL;
       $assigned = NULL;
       $reports_to = NULL;
-      // Debug: Check what we're about to bind
-echo "<!-- Debug: name='$name', gender='$gender', sentence_end='$sentence_end' -->";
-echo "<!-- Debug: bind_param types: issssii (7 chars for 7 params) -->";
-echo "<!-- Debug: gid=$gid, inhabits=$inhabits, assigned=$assigned, reports_to=$reports_to -->";
+
 
 $stmt->bind_param("issssii", $gid, $name, $inhabits, $sentence_end, $gender, $assigned, $reports_to);
       $stmt->bind_param(issssii, $gid ,$name, $inhabits, $sentence_end, $gender, $assigned, $reports_to);
