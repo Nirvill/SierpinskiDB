@@ -6,7 +6,7 @@
     <link href="style.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
-    <div class="imprint">
+    <div class="form-check">
     <p>You have added: </p>
       
     <?php

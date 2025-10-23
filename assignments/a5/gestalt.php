@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="form-check">
-        <h1>Insert a Gestalt<h1>
+        <h1>Insert a Gestalt</h1>
         <form action="gestalt_check.php" method="post">
             <label for="fname">First name:</label><br>
             <input type="text" id="fname" name="fname"><br>
