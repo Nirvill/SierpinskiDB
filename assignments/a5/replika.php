@@ -6,16 +6,18 @@
     <link href="style.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
+    <div class="imprint">
     <h1>Insert a Replika<h1>
     <form action="/replika_check.php">
       
     <?php
-      require_once __DIR__ . '/bootstrap.php';
-
-      $servername = $_ENV['DB_HOST'];
-      $username = $_ENV['DB_USER'];
-      $password = $_ENV['DB_PASSWORD'];
-      $dbname = $_ENV['DB_NAME'];
+      require_once __DIR__ . '../project/bootstrap.php';
+ 
+      $servername = $config['DB_HOST'];
+      $username = $config['DB_USER'];
+      $password = $config['DB_PASSWORD'];
+      $dbname = $config['DB_NAME'];
+ 
 
       // Create connection
       $conn = new mysqli($servername, $username, $password, $dbname);
@@ -39,5 +41,6 @@
 
       $conn->close();
       ?>
+    </div>
   </body>
 </html>
