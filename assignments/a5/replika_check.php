@@ -30,7 +30,7 @@
       $ReplikaArr = array("ARAR", "EULR", "KLBR", "LSTR", "MNHR", "STAR", "STCR", "SAPR", "KNCR", "ADLR", "FKLR");
       if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $model = $_POST['model'];
-        $name = $ReplikaArr[model - 1] . "S-23" . $_POST['code'];
+        $name = $ReplikaArr[$model - 1] . "S-23" . $_POST['code'];
         $arrival_date = $_POST['arrival_date'];
         $current_role = $_POST['current_role'];
         $clearance = $_POST['clearance'];
@@ -45,7 +45,6 @@
       $reports_to = NULL;
 
 $stmt->bind_param("iisisiisis", $rid, $clearance, $name, $inhabits, $arrival_date, $assigned, $reports_to, $current_role, $model, $nickname);
-      $stmt->bind_param(iisisiisis, $rid, $clearance, $name, $inhabits, $arrival_date, $assigned, $reports_to, $current_role, $model, $nickname);
       //nuh-uh, no sql injections
         if ($stmt->execute() === TRUE) {
         echo "New record created successfully";
