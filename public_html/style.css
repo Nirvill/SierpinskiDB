@@ -242,3 +242,7 @@ input:checked~ul.submenu {
 .submenu a:hover {
     color: #dc440e;
 }
+
+.form-check {
+    margin: 10px;
+}
