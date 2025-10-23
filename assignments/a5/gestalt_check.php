@@ -27,7 +27,7 @@
           die("Connection failed: " . $conn->connect_error);
       }
     
-      if (isset($_POST['Submit'])) {
+      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $name = $_POST['fname'] . " " . $_POST['lname'];
         $gender = $_POST['gender'];
         $sentence_end = $_POST['sentence_end'];
