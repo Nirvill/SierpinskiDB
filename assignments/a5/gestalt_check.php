@@ -10,16 +10,12 @@
     <p>You have added: </p>
       
     <?php
-      require_once __DIR__ . '/bootstrap.php';
-
-      // $servername = $_ENV['DB_HOST'];
-      // $username = $_ENV['DB_USER'];
-      // $password = $_ENV['DB_PASSWORD'];
-      // $dbname = $_ENV['DB_NAME'];
-        $servername = local;
-      $username = $_ENV['DB_USER'];
-      $password = $_ENV['DB_PASSWORD'];
-      $dbname = $_ENV['DB_NAME'];
+      $config = require __DIR__ . '/../project/bootstrap.php';
+ 
+      $servername = $config['DB_HOST'];
+      $username = $config['DB_USER']; 
+      $password = $config['DB_PASSWORD'];
+      $dbname = $config['DB_NAME'];
 
       // Create connection
       $conn = new mysqli($servername, $username, $password, $dbname);
@@ -33,10 +29,18 @@
         $gender = $_POST['gender'];
         $sentence_end = $_POST['sentence_end'];
         }
-      $sql = "INSERT INTO Gestalt (GID, Legal_Name, Inhabits, End_Of_Sentence, Gender, Assigned, Reports_To)
-        VALUES (, $name, NULL, $sentence_end, $gender, NULL, NULL, NULL)";
-
-        if ($conn->query($sql) === TRUE) {
+        
+      $stmt = $conn->prepare("INSERT INTO Gestalt (GID, Legal_Name, Inhabits, End_Of_Sentence, Gender, Assigned, Reports_To)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+      $gid = NULL;
+      $inhabits = NULL;
+      $assigned = NULL;
+      $reports_to = NULL;
+      $stmt->bind_param(issssii, $gid ,$name, $inhabits, $sentence_end, $gender, $assigned, $reports_to);
+      // $sql = "INSERT INTO Gestalt (GID, Legal_Name, Inhabits, End_Of_Sentence, Gender, Assigned, Reports_To)
+      //   VALUES (, $name, NULL, $sentence_end, $gender, NULL, NULL, NULL)";
+      //nuh-uh, no sql injections
+        if ($stmt->execute() === TRUE) {
         echo "New record created successfully";
         } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
