@@ -8,40 +8,43 @@
   <body>
     <div class="form-check">
     <h1>Insert a Replika</h1>
-    <form action="replika_check.php" mode="POST">
-      
-    <?php
-      $config = require __DIR__ . '/../project/bootstrap.php';
- 
-      $servername = $config['DB_HOST'];
-      $username = $config['DB_USER']; 
-      $password = $config['DB_PASSWORD'];
-      $dbname = $config['DB_NAME'];
- 
-
-      // Create connection
-      $conn = new mysqli($servername, $username, $password, $dbname);
-      // Check connection
-      if ($conn->connect_error) {
-          die("Connection failed: " . $conn->connect_error);
-      }
-    
-      $sql = "SELECT Model_Code FROM Models";
-      $result = $conn->query($sql);
-
-      echo "balls";
-      if ($result->num_rows > 0) {
-          // output data of each row
-          while($row = $result->fetch_assoc()) {
-              echo "<input type=\"radio\" id=\"". $row["Model_Code"]."\" name=\"Model\" value=\"".$row["Model_Code"]."\">";
-              echo "<label for=\"". $row["Model_Code"]. "\">". $row["Model_Code"]."</label><br>";
-          }
-      } else {
-          echo "0 results";
-      }
-
-      $conn->close();
-      ?>
+    <form action="replika_check.php" mode="post">
+      <p>Model Code: </p>
+        <input type="radio" id="ARAR" name="model" value="1">
+        <label for="ARAR">ARAR</label><br>
+        <input type="radio" id="EULR" name="model" value="2">
+        <label for="EULR">EULR</label><br>
+        <input type="radio" id="KLBR" name="model" value="3">
+        <label for="KLBR">KLBR</label><br>
+        <input type="radio" id="LSTR" name="model" value="4">
+        <label for="LSTR">LSTR</label><br>
+        <input type="radio" id="MNHR" name="model" value="5">
+        <label for="MNHR">MNHR</label><br>
+        <input type="radio" id="STAR" name="model" value="6">
+        <label for="STAR">STAR</label><br>
+        <input type="radio" id="STCR" name="model" value="7">
+        <label for="STCR">STCR</label><br>
+        <input type="radio" id="SAPR" name="model" value="8">
+        <label for="SAPR">SAPR</label><br>
+        <input type="radio" id="KNCR" name="model" value="9">
+        <label for="KNCR">KNCR</label><br>
+        <input type="radio" id="ADLR" name="model" value="10">
+        <label for="ADLR">ADLR</label><br>
+        <input type="radio" id="FKLR" name="model" value="11">
+        <label for="FKLR">FKLR</label><br><br>
+      <label for="code">Replika Code (must be a number)</label>
+      <input type="number" step="1" id="code" min="0" max="99">
+      <label for="arrival_date">Date of Arrival:</label>
+      <input type="date" id="arrival_date" name="arrival_date">
+      <label for="current_role">Current Role:</label><br>
+      <input type="text" id="current_role" name="current_role"><br>
+      <label for="clearance">Clearance: </label><br>
+      <input type="range" id="clearance" name="clearance" min="0" max="3"><br>
+      <label for="nname">Nickname:</label><br>
+      <input type="text" id="nname" name="nname"><br>
+      <input type="submit" value="submit">
+      <input type="reset" value="Reset">
+    </form> 
     </div>
   </body>
 </html>
