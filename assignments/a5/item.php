@@ -11,7 +11,7 @@
     <form action="item_check.php" method="post">
         <label for="iname">Item name:</label><br>
         <input type="text" id="iname" name="iname"><br>
-        <label for="idesc">Last name:</label><br>
+        <label for="idesc">Item Description:</label><br>
         <input type="text" id="idesc" name="idesc"><br>
         <input type="submit" value="Submit">
         <input type="reset" value="Reset">
