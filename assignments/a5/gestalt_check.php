@@ -39,6 +39,12 @@
       $inhabits = NULL;
       $assigned = NULL;
       $reports_to = NULL;
+      // Debug: Check what we're about to bind
+echo "<!-- Debug: name='$name', gender='$gender', sentence_end='$sentence_end' -->";
+echo "<!-- Debug: bind_param types: issssii (7 chars for 7 params) -->";
+echo "<!-- Debug: gid=$gid, inhabits=$inhabits, assigned=$assigned, reports_to=$reports_to -->";
+
+$stmt->bind_param("issssii", $gid, $name, $inhabits, $sentence_end, $gender, $assigned, $reports_to);
       $stmt->bind_param(issssii, $gid ,$name, $inhabits, $sentence_end, $gender, $assigned, $reports_to);
       // $sql = "INSERT INTO Gestalt (GID, Legal_Name, Inhabits, End_Of_Sentence, Gender, Assigned, Reports_To)
       //   VALUES (, $name, NULL, $sentence_end, $gender, NULL, NULL, NULL)";

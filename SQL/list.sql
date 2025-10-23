@@ -1,3 +1,3 @@
 USE db_rzherebilov;
-SELECT Legal_Name
+SELECT Legal_Name, End_Of_Sentence, Gender
     FROM Gestalt;
