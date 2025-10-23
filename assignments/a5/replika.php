@@ -11,7 +11,7 @@
     <form action="replika_check.php" mode="POST">
       
     <?php
-      $config = require __DIR__ . '/../project/config.php'
+      $config = require __DIR__ . '/../project/config.php';
  
       $servername = $config['DB_HOST'];
       $username = $config['DB_USER']; 
