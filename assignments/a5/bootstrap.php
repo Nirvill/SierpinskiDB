@@ -1,3 +1,7 @@
-<?php require_once __DIR__ . '/vendor/autoload.php';
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__, '../project/.env');
-$dotenv->load(); ?>
+<?php
+return [
+  'DB_PASSWORD' => 'UsH2ua47sdRqjhpp'
+  'DB_NAME' => 'db_rzherebilov'
+  'DB_HOST' => 'localhost'
+  'DB_USER' => 'rzherebilo'
+];
