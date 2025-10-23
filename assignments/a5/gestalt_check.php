@@ -10,6 +10,9 @@
     <p>You have added: </p>
       
     <?php
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+          die("<p>Error: No form data submitted. Please use the form to add a Gestalt.</p>");
+      }
       $config = require __DIR__ . '/../project/bootstrap.php';
  
       $servername = $config['DB_HOST'];
@@ -24,7 +27,7 @@
           die("Connection failed: " . $conn->connect_error);
       }
     
-      if (isset($_Post['submit'])) {
+      if (isset($_POST['submit'])) {
         $name = $_POST['fname'] . " " . $_POST['lname'];
         $gender = $_POST['gender'];
         $sentence_end = $_POST['sentence_end'];
