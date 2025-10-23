@@ -16,13 +16,13 @@
         <label for="request_date">Date of Request:</label>
         <input type="date" id="request_date" name="request_date">
         <p>Status: </p>
-            <input type="radio" id="unassigned" name="staus" value="Unassigned">
+            <input type="radio" id="unassigned" name="status" value="Unassigned">
             <label for="unassigned">Unassigned</label><br>
-            <input type="radio" id="closed" name="staus" value="Closed">
+            <input type="radio" id="closed" name="status" value="Closed">
             <label for="closed">Closed</label><br>
-            <input type="radio" id="resolved" name="staus" value="Resolved">
+            <input type="radio" id="resolved" name="status" value="Resolved">
             <label for="resolved">Resolved</label><br>
-            <input type="radio" id="declined" name="staus" value="Declined">
+            <input type="radio" id="declined" name="status" value="Declined">
             <label for="declined">Declined</label><br>
             <input type="radio" id="pending" name="status" value="Pending">
             <label for="pending">Pending</label><br><br>
