@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Insert Replika</title>
+    <title>Item Check</title>
     <link href="style.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
@@ -10,16 +10,15 @@
     <p>You have added: </p>
       
     <?php
-      require_once __DIR__ . '/bootstrap.php';
-
-      // $servername = $_ENV['DB_HOST'];
-      // $username = $_ENV['DB_USER'];
-      // $password = $_ENV['DB_PASSWORD'];
-      // $dbname = $_ENV['DB_NAME'];
-        $servername = local;
-      $username = $_ENV['DB_USER'];
-      $password = $_ENV['DB_PASSWORD'];
-      $dbname = $_ENV['DB_NAME'];
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+          die("<p>Error: No form data submitted. Please use the form to add a Gestalt.</p>");
+      }
+      $config = require __DIR__ . '/../project/bootstrap.php';
+ 
+      $servername = $config['DB_HOST'];
+      $username = $config['DB_USER']; 
+      $password = $config['DB_PASSWORD'];
+      $dbname = $config['DB_NAME'];
 
       // Create connection
       $conn = new mysqli($servername, $username, $password, $dbname);
@@ -28,14 +27,19 @@
           die("Connection failed: " . $conn->connect_error);
       }
     
-      if (isset($_Post['submit'])) {
-        $iname = $_POST['iname'];
-        $idesc = $_POST['idesc'];
+      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $name = $_POST['iname'];
+        $desc = $_POST['idesc'];
         }
-      $sql = "INSERT INTO Item (IID, Name, Item_Description, LID)
-        VALUES (, $iname, $idesc, NULL)";
+        
+      $stmt = $conn->prepare("INSERT INTO Item (IID, Name, Item_Description)
+        VALUES (?, ?, ?)");
+      $iid = NULL;
 
-        if ($conn->query($sql) === TRUE) {
+$stmt->bind_param("iss", $iid, $name, $desc);
+      $stmt->bind_param(iss, $iid, $name, $desc);
+      //nuh-uh, no sql injections
+        if ($stmt->execute() === TRUE) {
         echo "New record created successfully";
         } else {
         echo "Error: " . $sql . "<br>" . $conn->error;

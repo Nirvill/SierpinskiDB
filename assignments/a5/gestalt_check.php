@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Insert Replika</title>
+    <title>Gestalt Check</title>
     <link href="style.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
