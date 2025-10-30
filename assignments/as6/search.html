@@ -29,7 +29,7 @@
                         }
 
                         resultsDiv.innerHTML = data.results
-                            .map(item => `<div class="result-item">${item.name}</div>`)
+                            .map(item => `<div class="result-item">${item.Nickname}</div>`)
                             .join('');
                     })
                     .catch(err => {
