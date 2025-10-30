@@ -18,17 +18,17 @@ $config = require __DIR__ . '/../project/bootstrap.php';
 if (isset($_POST['search'])) {
     $search = $conn->real_escape_string($_POST['search']);
     $sql = $search ?
-        "SELECT Location_Name
+        "SELECT Location_Name, LID
         FROM Location1
         WHERE Location_Name LIKE '%$search%'" :
 
-        "SELECT Location_Name
+        "SELECT Location_Name, LID
         FROM Location1";
     $result = $conn->query($sql);
  
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo "<tr><td><a href=\"search_result.php\">" . $row['Location_Name'] . "</a></td></tr>";
+            echo "<tr><td><a href=\"search_result.php?LID=" . urlencode($row['LID']) . "\">" . $row['Location_Name'] . "</a></td></tr>";
         }
     } else {
         echo "<tr><td colspan='1'>No results found.</td></tr>";
