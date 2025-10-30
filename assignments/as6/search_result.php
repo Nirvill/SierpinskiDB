@@ -21,6 +21,7 @@
             </thead>
             <tbody>
                 <?php
+                 echo '<tr>balls</tr>';
                 $config = require __DIR__ . '/../project/bootstrap.php';
 
                 $servername = $config['DB_HOST'];
@@ -52,6 +53,7 @@ SELECT G.Legal_Name AS Name, 'Gestalt' AS Type, L.Location_Name As Location
         WHERE L.LID = ?
 ORDER BY Name;"
                 );
+                 echo '<tr>balls</tr>';
                 $stmt->bind_param("ii", $LID, $LID);
                 $stmt->execute();
                 $stmt->store_result();
