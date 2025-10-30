@@ -2,20 +2,19 @@
 //live-search/search.php
  
 <?php
-require_once __DIR__ . '../project/bootstrap.php';
+$config = require __DIR__ . '/../project/bootstrap.php';
  
       $servername = $config['DB_HOST'];
-      $username = $config['DB_USER'];
+      $username = $config['DB_USER']; 
       $password = $config['DB_PASSWORD'];
       $dbname = $config['DB_NAME'];
- 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
- 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+
+      // Create connection
+      $conn = new mysqli($servername, $username, $password, $dbname);
+      // Check connection
+      if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+      }
  
 if (isset($_POST['search'])) {
     $search = $conn->real_escape_string($_POST['search']);
@@ -50,6 +49,14 @@ if (isset($_POST['search'])) {
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             echo "<tr><td>" . $row['L.Location_Name'] . "</td></tr>";
+        }
+    } else {
+        echo "<tr><td colspan='1'>No results found.</td></tr>";
+    }
+}
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr><td>" . $row['Name'] . "</td></tr>";
         }
     } else {
         echo "<tr><td colspan='1'>No results found.</td></tr>";
