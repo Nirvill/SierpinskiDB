@@ -33,7 +33,7 @@
         $request_date = $_POST['request_date'];
         $status = $_POST['status'];
         }
-        
+      echo '<tr>balls</tr>';
       $stmt = $conn->prepare("INSERT INTO TASK1 (TID, LID, Clearance, Request_Date, Urgency, TASK1_Status, Requested_By)
         VALUES (?, ?, ?, ?, ?, ?, ?)");
       $tid = NULL;
