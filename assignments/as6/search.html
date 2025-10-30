@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <input type="text" id="search-box" placeholder="Search products...">
+    <div id="results"></div>
+
+    <script>
+        let timer;
+        const searchBox = document.getElementById('search-box');
+        const resultsDiv = document.getElementById('results');
+
+        searchBox.addEventListener('input', () => {
+            clearTimeout(timer);
+            const query = searchBox.value.trim();
+            if (query.length === 0) {
+                resultsDiv.innerHTML = '';
+                return;
+            }
+
+            timer = setTimeout(() => {
+                fetch(`http://localhost:5000/search?q=${encodeURIComponent(query)}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (!data.results.length) {
+                            resultsDiv.innerHTML = '<p>No results found.</p>';
+                            return;
+                        }
+
+                        resultsDiv.innerHTML = data.results
+                            .map(item => `<div class="result-item">${item.name}</div>`)
+                            .join('');
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        resultsDiv.innerHTML = '<p style="color:red">Error loading results</p>';
+                    });
+            }, 300);
+        });
+    </script>
+
+</body>
+
+</html>
