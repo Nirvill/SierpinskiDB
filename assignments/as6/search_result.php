@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <title>Search Results</title>
     <link href="style.css" rel="stylesheet" type="text/css" media="all">
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 </head>
 
 <body>
@@ -21,7 +20,6 @@
             </thead>
             <tbody>
                 <?php
-                 echo '<tr>balls</tr>';
                 $config = require __DIR__ . '/../project/bootstrap.php';
 
                 $servername = $config['DB_HOST'];
@@ -37,9 +35,7 @@
                 }
 
                 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    echo "<tr><td colspan='3'>DEBUG: \$_GET = " . htmlspecialchars(json_encode($_GET)) . "</td></tr>";
     $LID = isset($_GET['LID']) ? intval($_GET['LID']) : 0;
-    echo "<tr><td colspan='3'>DEBUG: LID = " . htmlspecialchars($LID) . "</td></tr>";
 }
 
                 $stmt = $conn->prepare("SELECT R.Legal_Name AS Name, 'Replika' AS Type, L.Location_Name AS Location
@@ -55,7 +51,6 @@ SELECT G.Legal_Name AS Name, 'Gestalt' AS Type, L.Location_Name As Location
         WHERE L.LID = ?
 ORDER BY Name;"
                 );
-                 echo '<tr>balls</tr>';
                 $stmt->bind_param("ii", $LID, $LID);
                 $stmt->execute();
                 $stmt->bind_result($name,$type, $location);
