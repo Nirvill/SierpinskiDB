@@ -12,7 +12,9 @@
         <table id="result">
             <thead>
                 <tr>
-                    <th>Location</th>
+                    <th>Task Name</th>
+                    <th>Request Date</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,7 +32,7 @@
                     var query = $(this).val();
                     if (query.length > 2) {
                         $.ajax({
-                            url: 'search.php',
+                            url: 'search2.php',
                             type: 'POST',
                             data: { search: query },
                             success: function (data) {
@@ -44,7 +46,7 @@
  
                 function loadAllRecords() {
                     $.ajax({
-                        url: 'search.php',
+                        url: 'search2.php',
                         type: 'POST',
                         data: { search: '' },
                         success: function (data) {
