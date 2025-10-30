@@ -37,8 +37,10 @@
                 }
 
                 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-                    $LID = $_GET['LID'];
-                }
+    echo "<tr><td colspan='3'>DEBUG: \$_GET = " . htmlspecialchars(json_encode($_GET)) . "</td></tr>";
+    $LID = isset($_GET['LID']) ? intval($_GET['LID']) : 0;
+    echo "<tr><td colspan='3'>DEBUG: LID = " . htmlspecialchars($LID) . "</td></tr>";
+}
 
                 $stmt = $conn->prepare("SELECT R.Legal_Name AS Name, 'Replika' AS Type, L.Location_Name AS Location
     FROM Replika R
