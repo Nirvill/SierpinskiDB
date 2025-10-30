@@ -15,15 +15,16 @@ $config = require __DIR__ . '/../project/bootstrap.php';
       if ($conn->connect_error) {
           die("Connection failed: " . $conn->connect_error);
       }
-if (isset($_POST['search'])) {
-    $search = $conn->real_escape_string($_POST['search']);
-    $sql = $search ?
-        "SELECT Legal_Name, RID, Clearance
+if (isset($_POST['clearance'])) {
+    $clearanceLevel = $conn->real_escape_string($_POST['clearance']);
+    $sql = $clearanceLevel ?
+        "SELECT Legal_Name, RID, Clearance, Assigned
         FROM Replika
-        WHERE Clearance LIKE '%$search%'" :
+        WHERE Clearance = $clearanceLevel AND Assigned = NULL":
 
         "SELECT Legal_Name, RID, Clearance
-        FROM Replika";
+        FROM Replika
+        WHERE Assigned = NULL";
     $result = $conn->query($sql);
  
     if ($result->num_rows > 0) {
