@@ -29,8 +29,8 @@ if (isset($_POST['search'])) {
  
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo "<input type=\"radio\" id=\"" . $row['LID'] . "\" name=\"location\" value=\"". $row['LID'] . "\">";
-            echo "<label for=\"". $row['LID'] ."\">" . $row['Location_Name'] ."</label><br>"
+            echo "<input type=\"radio\" id=\"" . $row['LID'] . "\" name=\"location\" value=\"" . $row['LID'] . "\">";
+            echo "<label for=\"" . $row['LID'] . "\">" . $row['Location_Name'] . "</label><br>";
         }
     } else {
         echo "<p>No results found.</p>";
