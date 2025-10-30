@@ -1,47 +1,57 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Insert Replika</title>
-    <link href="style.css" rel="stylesheet" type="text/css" media="all">
-  </head>
-  <body>
-    <div class="imprint">
-    <h1>Insert a Replika<h1>
-    <form action="/replika_check.php">
-     
-    <?php
-      require_once __DIR__ . '../project/bootstrap.php';
+
+//live-search/search.php
+ 
+<?php
+require_once __DIR__ . '../project/bootstrap.php';
  
       $servername = $config['DB_HOST'];
       $username = $config['DB_USER'];
       $password = $config['DB_PASSWORD'];
       $dbname = $config['DB_NAME'];
  
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
  
-      // Create connection
-      $conn = new mysqli($servername, $username, $password, $dbname);
-      // Check connection
-      if ($conn->connect_error) {
-          die("Connection failed: " . $conn->connect_error);
-      }
-   
-      $sql = "SELECT Model_Code FROM Models";
-      $result = $conn->query($sql);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
  
-      if ($result->num_rows > 0) {
-          // output data of each row
-          while($row = $result->fetch_assoc()) {
-              echo "<input type=\"radio\" id=\"". $row["Model_Code"]."\" name=\"Model\" value=\"".$row["Model_Code"]."\">";
-              echo "<label for=\"". $row["Model_Code"]. "\">". $row["Model_Code"]."</label><br>";
-          }
-      } else {
-          echo "0 results";
-      }
+if (isset($_POST['search'])) {
+    $search = $conn->real_escape_string($_POST['search']);
+    $sql = $search ?
+        "SELECT R.Legal_Name AS Name, 'Replika' AS Type, L.Location_Name AS Location
+        FROM Replika R
+        INNER JOIN Location1 L ON R.Inhabits = L.LID
+        WHERE L.Location_Name LIKE '%$search%' -- searchstring instead
  
-      $conn->close();
-      ?>
-    </div>
-  </body>
-</html>
+        UNION ALL
+ 
+        SELECT G.Legal_Name AS Name, 'Gestalt' AS Type, L.Location_Name As Location
+        FROM Gestalt G
+        INNER JOIN Location1 L ON G.Inhabits = L.LID
+        WHERE L.Location_Name LIKE ''%$search%' -- searchstring instead
+        ORDER BY Name" :
+        "SELECT R.Legal_Name AS Name, 'Replika' AS Type, L.Location_Name AS Location
+        FROM Replika R
+        INNER JOIN Location1 L ON R.Inhabits = L.LID
+        WHERE L.Location_Name -- searchstring instead
+ 
+        UNION ALL
+ 
+        SELECT G.Legal_Name AS Name, 'Gestalt' AS Type, L.Location_Name As Location
+        FROM Gestalt G
+        INNER JOIN Location1 L ON G.Inhabits = L.LID
+        WHERE L.Location_Name -- searchstring instead
+        ORDER BY Name";
+    $result = $conn->query($sql);
+ 
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr><td>" . $row['Name'] . "</td></tr>";
+        }
+    } else {
+        echo "<tr><td colspan='1'>No results found.</td></tr>";
+    }
+}
  
