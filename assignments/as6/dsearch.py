@@ -18,6 +18,7 @@ def get_db():
 @app.route("/search")
 def search():
     q = request.args.get("q", "")
+    print(f"[DEBUG] Received query: {q}")
     if not q:
         return jsonify(results=[])
 
