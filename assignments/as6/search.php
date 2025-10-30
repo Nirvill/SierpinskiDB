@@ -28,7 +28,7 @@ if (isset($_POST['search'])) {
  
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row['Location_Name'] . "</td></tr>";
+            echo "<tr><td><a href=\"search_result.html\">" . $row['Location_Name'] . "</a></td></tr>";
         }
     } else {
         echo "<tr><td colspan='1'>No results found.</td></tr>";
