@@ -10,6 +10,12 @@
     <div class="form-check">
         <h1>Query 1: Lists all of the inhabitants that live in the dorm with applied search prompt</h1>
         <input type="text" id="search" placeholder="Search...">
+        <form id = "result" action="search_result.php" method="post">
+            <h1>Location</h1>
+            <input type="radio" id="ARAR" name="model" value="1">
+            <label for="ARAR">ARAR</label><br>
+            <input type="submit" value="submit">
+        </form>
         <table id="result">
             <thead>
                 <tr>
@@ -35,7 +41,7 @@
                             type: 'POST',
                             data: { search: query },
                             success: function (data) {
-                                $('#result tbody').html(data);
+                                $('#result').html(data);
                             }
                         });
                     } else {
@@ -49,7 +55,7 @@
                         type: 'POST',
                         data: { search: '' },
                         success: function (data) {
-                            $('#result tbody').html(data);
+                            $('#result').html(data);
                         }
                     });
                 }
