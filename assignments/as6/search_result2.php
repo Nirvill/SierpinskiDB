@@ -19,8 +19,9 @@
                 </tr>
             </thead>
             <tbody>
+                <pre><?php var_dump($_POST); ?></pre>
                 <?php
-                 echo '<tr>balls</tr>';
+                echo '<tr>balls</tr>';
                 $config = require __DIR__ . '/../project/bootstrap.php';
 
                 $servername = $config['DB_HOST'];
@@ -36,28 +37,29 @@
                 }
 
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    echo "<tr><td colspan='3'>DEBUG: \$_POST = " . htmlspecialchars(json_encode($_POST)) . "</td></tr>";
-    $clearance = isset($_POST['clearance']) ? intval($_POST['clearance']) : 0;
-    echo "<tr><td colspan='3'>DEBUG: CLearance = " . htmlspecialchars($clearance) . "</td></tr>";
-}
+                    echo "<tr><td colspan='3'>DEBUG: \$_POST = " . htmlspecialchars(json_encode($_POST)) . "</td></tr>";
+                    $clearance = isset($_POST['clearance']) ? intval($_POST['clearance']) : 0;
+                    echo "<tr><td colspan='3'>DEBUG: CLearance = " . htmlspecialchars($clearance) . "</td></tr>";
+                }
 
-                $stmt = $conn->prepare("SELECT R.Legal_Name AS Name, R.Clearance AS Clearance
-FROM Replika R
-WHERE R.Clearance = ?;"
+                $stmt = $conn->prepare("SELECT Legal_Name, RID, Clearance, Assigned
+        FROM Replika
+        WHERE Clearance = ? AND Assigned IS NULL;"
                 );
-                 echo '<tr>balls</tr>';
+                echo '<tr>balls</tr>';
                 $stmt->bind_param("i", $clearance);
                 $stmt->execute();
-                $stmt->bind_result($name,$gclearance);
-                $hasrows= false;
+                $stmt->bind_result($name, $rid, $gclearance, $ass);
+                $hasrows = false;
                 while ($stmt->fetch()) {
                     $hasrows = true;
                     echo "<tr>
                         <td>" . htmlspecialchars($name) . "</td>
                         <td>" . htmlspecialchars($gclearance) . "</td>
                       </tr>";
-                } if (!$hasRows) {
-                echo "<tr><td colspan='3'>No results found.</td></tr>";
+                }
+                if (!$hasrows) {
+                    echo "<tr><td colspan='3'>No results found.</td></tr>";
                 }
                 ?>
             </tbody>

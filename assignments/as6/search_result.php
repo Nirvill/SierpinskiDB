@@ -67,7 +67,7 @@ ORDER BY Name;"
                         <td>" . htmlspecialchars($type) . "</td>
                         <td>" . htmlspecialchars($location) . "</td>
                       </tr>";
-                } if (!$hasRows) {
+                } if (!$hasrows) {
                 echo "<tr><td colspan='3'>No results found.</td></tr>";
                 }
                 ?>
