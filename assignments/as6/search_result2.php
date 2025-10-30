@@ -15,8 +15,7 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Type</th>
-                    <th>Location</th>
+                    <th>Clearance</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,36 +35,26 @@
                     die("Connection failed: " . $conn->connect_error);
                 }
 
-                if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    echo "<tr><td colspan='3'>DEBUG: \$_GET = " . htmlspecialchars(json_encode($_GET)) . "</td></tr>";
-    $LID = isset($_GET['LID']) ? intval($_GET['LID']) : 0;
-    echo "<tr><td colspan='3'>DEBUG: LID = " . htmlspecialchars($LID) . "</td></tr>";
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    echo "<tr><td colspan='3'>DEBUG: \$_POST = " . htmlspecialchars(json_encode($_POST)) . "</td></tr>";
+    $clearance = isset($_POST['Clearance']) ? intval($_POST['Clearance']) : 0;
+    echo "<tr><td colspan='3'>DEBUG: CLearance = " . htmlspecialchars($clearance) . "</td></tr>";
 }
 
-                $stmt = $conn->prepare("SELECT R.Legal_Name AS Name, 'Replika' AS Type, L.Location_Name AS Location
-    FROM Replika R
-    INNER JOIN Location1 L ON R.Inhabits = L.LID
-        WHERE L.LID = ?
-
-UNION ALL
-
-SELECT G.Legal_Name AS Name, 'Gestalt' AS Type, L.Location_Name As Location
-    FROM Gestalt G 
-    INNER JOIN Location1 L ON G.Inhabits = L.LID
-        WHERE L.LID = ?
-ORDER BY Name;"
+                $stmt = $conn->prepare("SELECT R.Legal_Name AS Name, R.Clearance AS Clearance
+FROM Replika R
+WHERE R.Clearance = ?;"
                 );
                  echo '<tr>balls</tr>';
-                $stmt->bind_param("ii", $LID, $LID);
+                $stmt->bind_param("i", $clearance);
                 $stmt->execute();
-                $stmt->bind_result($name,$type, $location);
+                $stmt->bind_result($name,$gclearance);
                 $hasrows= false;
                 while ($stmt->fetch()) {
                     $hasrows = true;
                     echo "<tr>
                         <td>" . htmlspecialchars($name) . "</td>
-                        <td>" . htmlspecialchars($type) . "</td>
-                        <td>" . htmlspecialchars($location) . "</td>
+                        <td>" . htmlspecialchars($gclearance) . "</td>
                       </tr>";
                 } if (!$hasRows) {
                 echo "<tr><td colspan='3'>No results found.</td></tr>";
