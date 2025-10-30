@@ -56,9 +56,17 @@ ORDER BY Name;"
                  echo '<tr>balls</tr>';
                 $stmt->bind_param("ii", $LID, $LID);
                 $stmt->execute();
-                $stmt->store_result();
-                while ($row = mysqli_fetch_array($stmt)) {
-                    echo $row['Name'];
+                $stmt->bind_result($name,$type, $location);
+                $hasrows= false;
+                while ($stmt->fetch()) {
+                    $hasrows = true;
+                    echo "<tr>
+                        <td>" . htmlspecialchars($name) . "</td>
+                        <td>" . htmlspecialchars($type) . "</td>
+                        <td>" . htmlspecialchars($location) . "</td>
+                      </tr>";
+                } if (!$hasRows) {
+                echo "<tr><td colspan='3'>No results found.</td></tr>";
                 }
                 ?>
             </tbody>
