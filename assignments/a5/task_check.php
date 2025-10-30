@@ -41,7 +41,6 @@
       $requested_by = NULL;
 
 $stmt->bind_param("iiisisi", $tid, $lid, $clearance, $request_date, $urgency, $status, $requested_by);
-      $stmt->bind_param(iiisisi, $tid, $lid, $clearance, $request_date, $urgency, $status, $requested_by);
       //nuh-uh, no sql injections
         if ($stmt->execute() === TRUE) {
         echo "New record created successfully";
