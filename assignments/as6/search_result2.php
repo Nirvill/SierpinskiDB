@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <title>Search Results</title>
     <link href="style.css" rel="stylesheet" type="text/css" media="all">
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 </head>
 
 <body>
@@ -19,9 +18,7 @@
                 </tr>
             </thead>
             <tbody>
-                <pre><?php var_dump($_POST); ?></pre>
                 <?php
-                echo '<tr>balls</tr>';
                 $config = require __DIR__ . '/../project/bootstrap.php';
 
                 $servername = $config['DB_HOST'];
@@ -37,16 +34,13 @@
                 }
 
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    echo "<tr><td colspan='3'>DEBUG: \$_POST = " . htmlspecialchars(json_encode($_POST)) . "</td></tr>";
                     $clearance = isset($_POST['clearance']) ? intval($_POST['clearance']) : 0;
-                    echo "<tr><td colspan='3'>DEBUG: CLearance = " . htmlspecialchars($clearance) . "</td></tr>";
                 }
 
                 $stmt = $conn->prepare("SELECT Legal_Name, RID, Clearance, Assigned
         FROM Replika
         WHERE Clearance = ? AND Assigned IS NULL;"
                 );
-                echo '<tr>balls</tr>';
                 $stmt->bind_param("i", $clearance);
                 $stmt->execute();
                 $stmt->bind_result($name, $rid, $gclearance, $ass);
