@@ -48,18 +48,12 @@ if (isset($_POST['search'])) {
  
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row['L.Location_Name'] . "</td></tr>";
-        }
-    } else {
-        echo "<tr><td colspan='1'>No results found.</td></tr>";
-    }
-}
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
             echo "<tr><td>" . $row['Name'] . "</td></tr>";
         }
     } else {
         echo "<tr><td colspan='1'>No results found.</td></tr>";
     }
+    echo "<tr><td colspan='1'>balls</td></tr>";
 }
- 
+ $conn->close();
+?>
