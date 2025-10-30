@@ -3,7 +3,7 @@
  
 <?php
 $config = require __DIR__ . '/../project/bootstrap.php';
- 
+
       $servername = $config['DB_HOST'];
       $username = $config['DB_USER']; 
       $password = $config['DB_PASSWORD'];
@@ -29,7 +29,7 @@ if (isset($_POST['search'])) {
         SELECT G.Legal_Name AS Name, 'Gestalt' AS Type, L.Location_Name As Location
         FROM Gestalt G
         INNER JOIN Location1 L ON G.Inhabits = L.LID
-        WHERE L.Location_Name LIKE ''%$search%' -- searchstring instead
+        WHERE L.Location_Name LIKE '%$search%' -- searchstring instead
         ORDER BY Name" :
 
         "SELECT R.Legal_Name AS Name, 'Replika' AS Type, L.Location_Name AS Location
