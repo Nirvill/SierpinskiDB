@@ -18,11 +18,11 @@ $config = require __DIR__ . '/../project/bootstrap.php';
 if (isset($_POST['search'])) {
     $search = $conn->real_escape_string($_POST['search']);
     $sql = $search ?
-        "SELECT Location_Name
+        "SELECT Location_Name, LID
         FROM Location1
         WHERE Location_Name LIKE '%$search%'" :
 
-        "SELECT Location_Name
+        "SELECT Location_Name, LID
         FROM Location1";
     $result = $conn->query($sql);
  
