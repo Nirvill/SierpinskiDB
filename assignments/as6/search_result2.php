@@ -37,7 +37,7 @@
 
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "<tr><td colspan='3'>DEBUG: \$_POST = " . htmlspecialchars(json_encode($_POST)) . "</td></tr>";
-    $clearance = isset($_POST['Clearance']) ? intval($_POST['Clearance']) : 0;
+    $clearance = isset($_POST['clearance']) ? intval($_POST['clearance']) : 0;
     echo "<tr><td colspan='3'>DEBUG: CLearance = " . htmlspecialchars($clearance) . "</td></tr>";
 }
 
