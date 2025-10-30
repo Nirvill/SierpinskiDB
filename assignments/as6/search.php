@@ -15,6 +15,7 @@ $config = require __DIR__ . '/../project/bootstrap.php';
       if ($conn->connect_error) {
           die("Connection failed: " . $conn->connect_error);
       }
+      echo "<p>balls</p>";
 if (isset($_POST['search'])) {
     $search = $conn->real_escape_string($_POST['search']);
     $sql = $search ?
