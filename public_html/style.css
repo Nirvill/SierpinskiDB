@@ -73,6 +73,17 @@ input[type="text"] {
     border: solid 2px rgb(141, 141, 141);
 }
 
+input[type="password"] {
+    color: rgb(192, 192, 192);
+    background-color: black;
+    background-size: 10px 10px;
+    background-image: linear-gradient(to right, #1f1f1f 1px, transparent 1px);
+    margin-left: 1vh;
+    /* margin-right: 1vh; */
+    width: 20vh;
+    border: solid 2px rgb(141, 141, 141);
+}
+
 input[type="submit"] {
     color: black;
     background-color: #dc440e;
