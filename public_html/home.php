@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-      <?php
+<?php
       $config = require __DIR__ . '/../project/bootstrap.php';
  
       $servername = $config['DB_HOST'];
@@ -41,6 +38,9 @@
             }
         }
     ?>
+<!DOCTYPE html>
+<html>
+  <head>
     <meta charset="UTF-8">
     <title>Home</title>
     <link href="style.css" rel="stylesheet" type="text/css" media="all">
