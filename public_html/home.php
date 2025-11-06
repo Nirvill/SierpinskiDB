@@ -34,7 +34,10 @@
             $_SESSION['user_clearance'] = $clearance;
             $_SESSION['logged_in'] = true;
             $_SESSION['username'] = $login;
-            //add redirect to maintenance
+            header("Location: maintenance.php");
+            }
+            else {
+              $passFailed = true;
             }
         }
     ?>
@@ -47,11 +50,13 @@
     <div class="log-in">
         <img src="sierpinski.png" style="width: 40vh;">
         <h1>S-23 Sierpinski Worker Database</h1>
-          <form method="post" action="../project/validate.php">
+          <form method="post" action="home.php">
             Username: <input type="text" name="name"><br><br>
             Password: <input type="text" name="name"><input type="submit" value=">> LOG IN  ">
           </form>
-          <div id="error-msg"></div>
+          <?php if($passFailed) {
+            echo "<p>Log in failed. Try again</p>"
+          }?>
     <p>For testing purposes click on any of the links to view their respective page</p>
     <list>
         <ul><a href="clearance1.html">clearance1 - the default user page</a></ul>
