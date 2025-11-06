@@ -1,0 +1,27 @@
+<?php
+session_start();
+ 
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    // User is NOT logged in → redirect to login page
+    header("Location: home.php");
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Maintenance Page</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+  </body>
+  <div class="form-check">
+    <a href="gestalt.php">Adding Gestalts (entity set)</a><br>
+    <a href="replika.php">Adding Replikas (entity set)</a><br>
+    <a href="item.php">Adding Items (entity set)</a><br>
+    <a href="task.php">Adding Tasks (entity set)</a><br>
+    <a href="inhabits.php">Adding inhabits relation between Replika and Location (relationship set)</a><br>
+    <a href="report.php">Adding Report (relationship set)</a><br>
+  </div>
+</html>
