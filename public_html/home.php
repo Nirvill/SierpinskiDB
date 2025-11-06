@@ -51,8 +51,8 @@
         <img src="sierpinski.png" style="width: 40vh;">
         <h1>S-23 Sierpinski Worker Database</h1>
           <form method="post" action="home.php">
-            Username: <input type="text" name="name"><br><br>
-            Password: <input type="text" name="name"><input type="submit" value=">> LOG IN  ">
+            Username: <input type="text" name="login"><br><br>
+            Password: <input type="text" name="pass"><input type="submit" value=">> LOG IN  ">
           </form>
           <?php if($passFailed) {
             echo "<p>Log in failed. Try again</p>";
