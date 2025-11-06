@@ -55,8 +55,9 @@
             Password: <input type="text" name="name"><input type="submit" value=">> LOG IN  ">
           </form>
           <?php if($passFailed) {
-            echo "<p>Log in failed. Try again</p>"
-          }?>
+            echo "<p>Log in failed. Try again</p>";
+          }
+          ?>
     <p>For testing purposes click on any of the links to view their respective page</p>
     <list>
         <ul><a href="clearance1.html">clearance1 - the default user page</a></ul>
