@@ -1,0 +1,30 @@
+<?php
+session_start();
+ 
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    // User is NOT logged in → redirect to login page
+    header("Location: home.php");
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Insert Item</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+    <div class="form-check">
+    <h1>Insert an Item</h1>
+    <form action="item_check.php" method="post">
+        <label for="iname">Item name:</label><br>
+        <input type="text" id="iname" name="iname"><br>
+        <label for="idesc">Item Description:</label><br>
+        <input type="textarea" rows="4" cols="50"id="idesc" name="idesc">Enter item description<br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form> 
+    </div>
+  </body>
+</html>
