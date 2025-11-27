@@ -20,9 +20,9 @@
   <script>
 
 
-    // var Latitude = 0;
-    // var Longitude = 0;
-    // var usrip = {};
+     var Latitude = 100;
+     var Longitude = 100;
+     var usrip = {};
     // $.ajax({
     //     url: "https://ipapi.co/json/",
     //     async: false,
@@ -36,7 +36,7 @@
     // });
 
 
-    var map = L.map('map').setView([0, 0], 13);
+    var map = L.map('map').setView([Latitude, Longitude], 13);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
