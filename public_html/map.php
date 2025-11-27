@@ -18,11 +18,25 @@
   </body>
 
   <script>
-    $.getJSON('https://ipapi.co/json/', function(data) {
-      console.log(JSON.stringify(data, null, 2));
+
+
+var Latitude = {};
+var Longitude = {};
+var usrip = {};
+    $.ajax({
+        url: "https://ipapi.co/json/",
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+            Latitude = data.latitude;
+            Longitude = data.longitude;
+            usrip = data.ip;
+
+        }
     });
 
-    var map = L.map('map').setView([0, 0], 13);
+
+    var map = L.map('map').setView([$Latitude, $Longitude], 13);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
