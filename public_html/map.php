@@ -27,7 +27,11 @@
     console.log("IP:", ip);
     console.log("Latitude:", lat);
     console.log("Longitude:", lon);
-
+    var map = L.map('map').setView([lat, lon], 13);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
   })
   .catch(error => {
     console.error("Error:", error);
@@ -36,10 +40,6 @@
   
 
 
-    var map = L.map('map').setView([lat, lon], 13);
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
+    
   </script>
 </html>
