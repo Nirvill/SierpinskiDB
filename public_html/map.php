@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>IP Look Up</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  </head>
+  <style>
+    #map { height: 80vh; width: 50%; left: 25%;}
+  </style>
+
+  <body>
+    <img src="aeon.png" style="width: 15vh; top: 1vh; left: 3vh; position: absolute;">
+    <div class="top-bar" style="font-size: 30px;"><img src="sierpinski.png" width="1.5%"> S-23 Sierpinski Database</div>
+    <p>Please click the button below to see your location.</p>
+    <form method="post" action="map.php"><input type="submit" value="CLICK HERE"></form>
+    <div id="map"></div>
+  </body>
+
+  <script>
+    var map = L.map('map').setView([51.505, -0.09], 13);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+  </script>
+</html>
