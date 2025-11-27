@@ -18,6 +18,10 @@
   </body>
 
   <script>
+    $.getJSON('https://ipapi.co/json/', function(data) {
+      console.log(JSON.stringify(data, null, 2));
+    });
+
     var map = L.map('map').setView([0, 0], 13);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
