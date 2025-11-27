@@ -20,9 +20,9 @@
   <script>
 
 
-    var Latitude;
-    var Longitude;
-    var usrip;
+    var Latitude = 0;
+    var Longitude = 0;
+    var usrip = {};
     $.ajax({
         url: "https://ipapi.co/json/",
         async: false,
