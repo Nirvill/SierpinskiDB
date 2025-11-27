@@ -14,8 +14,6 @@
   <body>
     <img src="aeon.png" style="width: 15vh; top: 1vh; left: 3vh; position: absolute;">
     <div class="top-bar" style="font-size: 30px;"><img src="sierpinski.png" width="1.5%"> S-23 Sierpinski Database</div>
-    <p>Please click the button below to see your location.</p>
-    <form method="post" action="map.php"><input type="submit" value="CLICK HERE"></form>
     <div id="map"></div>
   </body>
 
