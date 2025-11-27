@@ -38,10 +38,11 @@
 // Posted by thdoan, modified by community. See post 'Timeline' for change history
 // Retrieved 2025-11-27, License - CC BY-SA 4.0
 
-  $.getJSON('https://ipapi.co/json/', function(data) {
-    Latitude = data.latitude;
-    Longitude = data.longitude;
-    usrip = data.ip;
+    $.getJSON('https://ipapi.co/json/', function(data) {
+    // Latitude = data.latitude;
+    // Longitude = data.longitude;
+    // usrip = data.ip;
+    console.log(JSON.stringify(data, null, 2));
     });
   
 
