@@ -18,36 +18,22 @@
   </body>
 
   <script>
+  fetch('https://ipapi.co/json/')
+  .then(response => response.json())
+  .then(data => {
+    const ip = data.ip;
+    const lat = data.latitude;
+    const lon = data.longitude;
 
-
-     var Latitude = 100;
-     var Longitude = 100;
-     var usrip = {};
-    // $.ajax({
-    //     url: "https://ipapi.co/json/",
-    //     async: false,
-    //     dataType: 'json',
-    //     success: function(data) {
-    //         Latitude = data.latitude;
-    //         Longitude = data.longitude;
-    //         usrip = data.ip;
-
-    //     }
-    // });
-    // Source - https://stackoverflow.com/a
-// Posted by thdoan, modified by community. See post 'Timeline' for change history
-// Retrieved 2025-11-27, License - CC BY-SA 4.0
-
-    $.getJSON('https://ipapi.co/json/', function(data) {
-    // Latitude = data.latitude;
-    // Longitude = data.longitude;
-    // usrip = data.ip;
-    console.log(JSON.stringify(data, null, 2));
-    });
+  })
+  .catch(error => {
+    console.error("Error:", error);
+  });
+ 
   
 
 
-    var map = L.map('map').setView([Latitude, Longitude], 13);
+    var map = L.map('map').setView([lat, lon], 13);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
