@@ -24,6 +24,9 @@
     const ip = data.ip;
     const lat = data.latitude;
     const lon = data.longitude;
+    console.log("IP:", ip);
+    console.log("Latitude:", lat);
+    console.log("Longitude:", lon);
 
   })
   .catch(error => {
